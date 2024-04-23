@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input and Manipulation</title>
+    <style>
+#title {
+    color: blue;
+    font-size: 24px;
+}
+
+p {
+    background-color: green;
+    padding: 10px;
+}
+
+li {
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+   <center><div id="title">ORDER ONLINE</div></center>
+    <button id="changeTitle">SHOP</button>
+
+    <hr>
+
+  <center><p onclick="color()">Enter Food name: <input type="text" id="nameInput"></p><button id="addelement">ADD FOOD TO CART</button></center>
+    
+
+    <hr>
+
+    <ul id="list-container">
+       <center><h2 style="color:red">CART</h2></center>
+        <li>List Item 1<button onclick='deleteitem(event)'>REMOVE</button></li>
+        <li>List Item 2<button onclick='deleteitem(event)'>REMOVE</button></li>
+    </ul>
+     
+    
+    <script>
+    
+    
+
+function color(){
+let paragraphs = document.getElementsByTagName("p");
+for (let i = 0; i < paragraphs.length; i++)
+    paragraphs[i].style.backgroundColor = "lightblue";
+}
+let changeTitle = document.getElementById("changeTitle")
+changeTitle.addEventListener("click",function changeTitle() {
+    // Select the element with ID "title"
+    let titleElement = document.getElementById("title");
+
+    // Change innerHTML and textContent
+    titleElement.innerHTML = "WELCOME TO  OUR RESTUARANT"
+
+    // Change style properties
+    titleElement.style.color = "red";
+    titleElement.style.fontSize = "28px";
+
+    // Add or remove class names
+    titleElement.classList.add("new-class");
+    titleElement.classList.remove("old-class");
+} )
+let addelement = document.getElementById("addelement")
+addelement.addEventListener("click",function addelement(){
+var newItem = document.createElement("li");
+newItem.innerHTML=nameInput.value
+let listContainer = document.getElementById("list-container");
+listContainer.appendChild(newItem);
+
+})
+function deleteitem(event){
+event.target.parentElement.remove()}
+  
+  </script>
+    
+
+</body>
+</html>
+
